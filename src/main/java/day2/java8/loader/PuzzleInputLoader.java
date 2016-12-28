@@ -1,4 +1,4 @@
-package java8.loader;
+package day2.java8.loader;
 
 import java.io.IOException;
 import java.nio.file.Files;

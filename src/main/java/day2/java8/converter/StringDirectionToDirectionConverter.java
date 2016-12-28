@@ -1,10 +1,10 @@
-package java8.converter;
+package day2.java8.converter;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import java.util.List;
 import java.util.Map;
-import java8.model.Direction;
+import day2.java8.model.Direction;
 
 /**
  * @author mmalicki

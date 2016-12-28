@@ -1,13 +1,16 @@
-package java8.model;
+package day2.java8.model.keypad;
 
 import com.google.common.collect.ImmutableMap;
+import day2.java8.model.Key;
+import day2.java8.model.KeypadKey;
+
 import java.util.Map;
 
 /**
  * @author mmalicki
  */
 
-public class Keypad {
+public class ClassicKeypad extends Keypad{
     private static final KeypadKey ONE = new KeypadKey(Key.ONE, Key.FOUR, Key.ONE, Key.ONE, Key.TWO);
     private static final KeypadKey TWO = new KeypadKey(Key.TWO, Key.FIVE, Key.TWO, Key.ONE, Key.THREE);
     private static final KeypadKey THREE = new KeypadKey(Key.THREE, Key.SIX, Key.THREE, Key.TWO, Key.THREE);
@@ -30,34 +33,18 @@ public class Keypad {
             .put(Key.NINE, NINE)
             .build();
 
-    private KeypadKey currentKey;
 
-    public Keypad() {
+
+    public ClassicKeypad() {
         this.currentKey = FIVE;
     }
-    public Keypad(final KeypadKey currentKey) {
+    public ClassicKeypad(final KeypadKey currentKey) {
         this.currentKey = currentKey;
     }
 
-    public void move(Direction direction) {
-        switch (direction) {
-            case DOWN:
-                currentKey = KEYS.get(currentKey.nextDown);
-                break;
-            case LEFT:
-                currentKey = KEYS.get(currentKey.nextLeft);
-                break;
-            case RIGHT:
-                currentKey = KEYS.get(currentKey.nextRight);
-                break;
-            case UP:
-                currentKey = KEYS.get(currentKey.nextUp);
-                break;
-        }
-    }
-
-    public Key getCurrentKey() {
-        return currentKey.key;
+    @Override
+    protected KeypadKey getKeypadKey(Key key) {
+        return KEYS.get(key);
     }
 }
 

@@ -1,4 +1,4 @@
-package scala
+package day2.java8.scala
 
 /**
   * @author mmalicki

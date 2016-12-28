@@ -1,9 +1,9 @@
-package java8.resolver;
+package day2.java8.resolver;
 
 import java.util.List;
-import java8.model.Direction;
-import java8.model.Key;
-import java8.model.Keypad;
+import day2.java8.model.Direction;
+import day2.java8.model.Key;
+import day2.java8.model.keypad.Keypad;
 
 /**
  * @author mmalicki

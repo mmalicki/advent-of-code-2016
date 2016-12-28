@@ -1,25 +1,23 @@
-package java8.resolver;
+package day2.java8.resolver;
 
-import java8.model.Direction;
-import java8.model.Key;
-import java8.model.Keypad;
+import day2.java8.model.Direction;
+import day2.java8.model.Key;
+import day2.java8.model.keypad.ClassicKeypad;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
-public class KeypadNavigatorTest {
+public class ClassicKeypadNavigatorTest {
 
     private KeypadNavigator keypadNavigator;
 
     @Test
     public void navigateKeypad() throws Exception {
         //GIVEN
-        Keypad keypad = new Keypad();
-        keypadNavigator = new KeypadNavigator(keypad);
+        ClassicKeypad classicKeypad = new ClassicKeypad();
+        keypadNavigator = new KeypadNavigator(classicKeypad);
         List<Direction> directions = Arrays.asList(Direction.UP, Direction.RIGHT, Direction.RIGHT, Direction.UP);
 
         //WHEN
@@ -33,8 +31,8 @@ public class KeypadNavigatorTest {
     @Test
     public void navigateKeypad_NoBoundaries() throws Exception {
         //GIVEN
-        Keypad keypad = new Keypad();
-        keypadNavigator = new KeypadNavigator(keypad);
+        ClassicKeypad classicKeypad = new ClassicKeypad();
+        keypadNavigator = new KeypadNavigator(classicKeypad);
         List<Direction> directions = Arrays.asList(Direction.DOWN, Direction.LEFT, Direction.RIGHT);
 
         //WHEN
