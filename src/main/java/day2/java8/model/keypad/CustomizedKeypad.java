@@ -6,20 +6,45 @@ import day2.java8.model.KeypadKey;
 
 import java.util.Map;
 
-public class CustomizedKeypad extends Keypad{
-    private static final KeypadKey ONE = new KeypadKey(Key.ONE, Key.THREE, Key.ONE, Key.ONE, Key.ONE);
-    private static final KeypadKey TWO = new KeypadKey(Key.TWO, Key.SIX, Key.TWO, Key.TWO, Key.THREE);
-    private static final KeypadKey THREE = new KeypadKey(Key.THREE, Key.SEVEN, Key.ONE, Key.TWO, Key.FOUR);
-    private static final KeypadKey FOUR = new KeypadKey(Key.FOUR, Key.EIGHT, Key.FOUR, Key.THREE, Key.FOUR);
-    private static final KeypadKey FIVE = new KeypadKey(Key.FIVE, Key.FIVE, Key.FIVE, Key.FIVE, Key.SIX);
-    private static final KeypadKey SIX = new KeypadKey(Key.SIX, Key.A, Key.TWO, Key.FIVE, Key.SEVEN);
-    private static final KeypadKey SEVEN = new KeypadKey(Key.SEVEN, Key.B, Key.THREE, Key.SIX, Key.EIGHT);
-    private static final KeypadKey EIGHT = new KeypadKey(Key.EIGHT, Key.C, Key.FOUR, Key.SEVEN, Key.NINE);
-    private static final KeypadKey NINE = new KeypadKey(Key.NINE, Key.NINE, Key.NINE, Key.EIGHT, Key.NINE);
-    private static final KeypadKey A = new KeypadKey(Key.A, Key.A, Key.SIX, Key.A, Key.B);
-    private static final KeypadKey B = new KeypadKey(Key.B, Key.D, Key.SEVEN, Key.A, Key.C);
-    private static final KeypadKey C = new KeypadKey(Key.C, Key.C, Key.EIGHT, Key.B, Key.C);
-    private static final KeypadKey D = new KeypadKey(Key.D, Key.D, Key.B, Key.D, Key.D);
+public class CustomizedKeypad extends Keypad {
+    private static final KeypadKey ONE = KeypadKey.builder().withKey(Key.ONE).withNextDown(Key.THREE).withNextUp(Key.ONE)
+            .withNextLeft(Key.ONE).withNextRight(Key.ONE).build();
+
+    private static final KeypadKey TWO = KeypadKey.builder().withKey(Key.TWO).withNextDown(Key.SIX).withNextUp(Key.TWO)
+            .withNextLeft(Key.TWO).withNextRight(Key.THREE).build();
+
+    private static final KeypadKey THREE = KeypadKey.builder().withKey(Key.THREE).withNextDown(Key.SEVEN).withNextUp(Key.ONE)
+            .withNextLeft(Key.TWO).withNextRight(Key.FOUR).build();
+
+    private static final KeypadKey FOUR = KeypadKey.builder().withKey(Key.FOUR).withNextDown(Key.EIGHT).withNextUp(Key.FOUR)
+            .withNextLeft(Key.THREE).withNextRight(Key.FOUR).build();
+
+    private static final KeypadKey FIVE = KeypadKey.builder().withKey(Key.FIVE).withNextDown(Key.FIVE).withNextUp(Key.FIVE)
+            .withNextLeft(Key.FIVE).withNextRight(Key.SIX).build();
+
+    private static final KeypadKey SIX = KeypadKey.builder().withKey(Key.SIX).withNextDown(Key.A).withNextUp(Key.TWO)
+            .withNextLeft(Key.FIVE).withNextRight(Key.SEVEN).build();
+
+    private static final KeypadKey SEVEN = KeypadKey.builder().withKey(Key.SEVEN).withNextDown(Key.B).withNextUp(Key.THREE)
+            .withNextLeft(Key.SIX).withNextRight(Key.EIGHT).build();
+
+    private static final KeypadKey EIGHT = KeypadKey.builder().withKey(Key.EIGHT).withNextDown(Key.C).withNextUp(Key.FOUR)
+            .withNextLeft(Key.SEVEN).withNextRight(Key.NINE).build();
+
+    private static final KeypadKey NINE = KeypadKey.builder().withKey(Key.NINE).withNextDown(Key.NINE).withNextUp(Key.NINE)
+            .withNextLeft(Key.EIGHT).withNextRight(Key.NINE).build();
+
+    private static final KeypadKey A = KeypadKey.builder().withKey(Key.A).withNextDown(Key.A).withNextUp(Key.SIX)
+            .withNextLeft(Key.A).withNextRight(Key.B).build();
+
+    private static final KeypadKey B = KeypadKey.builder().withKey(Key.B).withNextDown(Key.D).withNextUp(Key.SEVEN)
+            .withNextLeft(Key.A).withNextRight(Key.C).build();
+
+    private static final KeypadKey C = KeypadKey.builder().withKey(Key.C).withNextDown(Key.C).withNextUp(Key.EIGHT)
+            .withNextLeft(Key.B).withNextRight(Key.C).build();
+
+    private static final KeypadKey D = KeypadKey.builder().withKey(Key.D).withNextDown(Key.D).withNextUp(Key.B)
+            .withNextLeft(Key.D).withNextRight(Key.D).build();
 
     private static final Map<Key, KeypadKey> KEYS = ImmutableMap.<Key, KeypadKey>builder()
             .put(Key.ONE, ONE)
@@ -40,6 +65,7 @@ public class CustomizedKeypad extends Keypad{
     public CustomizedKeypad() {
         this.currentKey = FIVE;
     }
+
     public CustomizedKeypad(final KeypadKey currentKey) {
         this.currentKey = currentKey;
     }

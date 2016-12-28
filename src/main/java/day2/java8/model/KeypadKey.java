@@ -17,4 +17,49 @@ public class KeypadKey {
         this.nextLeft = nextLeft;
         this.nextRight = nextRight;
     }
+
+    public static KeypadKeyBuilder builder() {
+        return new KeypadKeyBuilder();
+    }
+
+    public static final class KeypadKeyBuilder {
+        public Key key;
+        public Key nextDown;
+        public Key nextUp;
+        public Key nextLeft;
+        public Key nextRight;
+
+        private KeypadKeyBuilder() {
+        }
+
+        public KeypadKeyBuilder withKey(Key key) {
+            this.key = key;
+            return this;
+        }
+
+        public KeypadKeyBuilder withNextDown(Key nextDown) {
+            this.nextDown = nextDown;
+            return this;
+        }
+
+        public KeypadKeyBuilder withNextUp(Key nextUp) {
+            this.nextUp = nextUp;
+            return this;
+        }
+
+        public KeypadKeyBuilder withNextLeft(Key nextLeft) {
+            this.nextLeft = nextLeft;
+            return this;
+        }
+
+        public KeypadKeyBuilder withNextRight(Key nextRight) {
+            this.nextRight = nextRight;
+            return this;
+        }
+
+        public KeypadKey build() {
+            KeypadKey keypadKey = new KeypadKey(key, nextDown, nextUp, nextLeft, nextRight);
+            return keypadKey;
+        }
+    }
 }
