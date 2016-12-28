@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         Keypad classicKeypad = new ClassicKeypad();
         Keypad customKeypad = new CustomizedKeypad();
-        KeypadNavigator keypadNavigator = new KeypadNavigator(classicKeypad);
+        KeypadNavigator keypadNavigator = new KeypadNavigator(customKeypad);
         CodeResolver codeResolver = new CodeResolver(keypadNavigator,
                 new StringDirectionToDirectionConverter());
         PuzzleInputLoader puzzleInputLoader = new PuzzleInputLoader();
