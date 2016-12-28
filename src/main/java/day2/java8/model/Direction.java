@@ -6,25 +6,25 @@ package day2.java8.model;
 public enum Direction {
     LEFT {
         @Override
-        public Key move(KeypadKey keypadKey) {
+        public Key getNext(KeypadKey keypadKey) {
             return keypadKey.nextLeft;
         }
     }, RIGHT {
         @Override
-        public Key move(KeypadKey key) {
+        public Key getNext(KeypadKey key) {
             return key.nextRight;
         }
     }, UP {
         @Override
-        public Key move(KeypadKey key) {
+        public Key getNext(KeypadKey key) {
             return key.nextUp;
         }
     }, DOWN {
         @Override
-        public Key move(KeypadKey key) {
+        public Key getNext(KeypadKey key) {
             return key.nextDown;
         }
     };
 
-    public abstract Key move(KeypadKey key);
+    public abstract Key getNext(KeypadKey key);
 }

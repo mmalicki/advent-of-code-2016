@@ -10,7 +10,7 @@ public abstract class Keypad {
     protected abstract KeypadKey getKeypadKey(Key key);
 
     public void move(Direction direction) {
-        currentKey = getKeypadKey(direction.move(currentKey));
+        currentKey = getKeypadKey(direction.getNext(currentKey));
     }
 
     public Key getCurrentKey() {
