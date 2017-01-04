@@ -1,4 +1,4 @@
-package day2.java8.loader;
+package loader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,7 +13,7 @@ public class PuzzleInputLoader {
         try {
             return Files.readAllLines(Paths.get(file));
         } catch (IOException e) {
-            throw new RuntimeException("Cannot load file: " + file);
+            throw new RuntimeException("Cannot extract file: " + file);
         }
     }
 }

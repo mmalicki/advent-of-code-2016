@@ -2,7 +2,7 @@ package day2.java8.run;
 
 
 import day2.java8.converter.StringDirectionToDirectionConverter;
-import day2.java8.loader.PuzzleInputLoader;
+import loader.PuzzleInputLoader;
 import day2.java8.model.keypad.ClassicKeypad;
 import day2.java8.model.keypad.CustomizedKeypad;
 import day2.java8.model.keypad.Keypad;
