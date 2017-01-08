@@ -10,17 +10,17 @@ import day2.java8.model.Direction;
  * @author mmalicki
  */
 public class StringDirectionToDirectionConverter {
-    private static final Map<String, Direction> DIRECTIONS = ImmutableMap.of(
-            "L", Direction.LEFT,
-            "R", Direction.RIGHT,
-            "U", Direction.UP,
-            "D", Direction.DOWN
-    );
+//    private static final Map<String, Direction> DIRECTIONS = ImmutableMap.of(
+//            "L", Direction.LEFT,
+//            "R", Direction.RIGHT,
+//            "U", Direction.UP,
+//            "D", Direction.DOWN
+//    );
 
     public List<Direction> getDirections(String directions) {
         ImmutableList.Builder<Direction> result = ImmutableList.builder();
         for (Character direction : directions.toCharArray()) {
-            result.add(DIRECTIONS.get(direction.toString()));
+            result.add(Direction.getDirection(direction.toString()));
         }
         return result.build();
     }
