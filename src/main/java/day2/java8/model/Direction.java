@@ -1,7 +1,6 @@
 package day2.java8.model;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * @author mmalicki
@@ -12,7 +11,6 @@ public enum Direction {
         public Key getNext(KeypadKey keypadKey) {
             return keypadKey.nextLeft;
         }
-
         @Override
         public String toString() {
             return "L";
@@ -22,7 +20,6 @@ public enum Direction {
         public Key getNext(KeypadKey key) {
             return key.nextRight;
         }
-
         @Override
         public String toString() {
             return "R";
@@ -32,7 +29,6 @@ public enum Direction {
         public Key getNext(KeypadKey key) {
             return key.nextUp;
         }
-
         @Override
         public String toString() {
             return "U";
@@ -42,7 +38,6 @@ public enum Direction {
         public Key getNext(KeypadKey key) {
             return key.nextDown;
         }
-
         @Override
         public String toString() {
             return "D";

@@ -10,7 +10,7 @@ public class KeypadKey {
     public final Key nextLeft;
     public final Key nextRight;
 
-    public KeypadKey(final Key key, final Key nextDown, final Key nextUp, final Key nextLeft, final Key nextRight) {
+    KeypadKey(final Key key, final Key nextDown, final Key nextUp, final Key nextLeft, final Key nextRight) {
         this.key = key;
         this.nextDown = nextDown;
         this.nextUp = nextUp;
@@ -58,8 +58,7 @@ public class KeypadKey {
         }
 
         public KeypadKey build() {
-            KeypadKey keypadKey = new KeypadKey(key, nextDown, nextUp, nextLeft, nextRight);
-            return keypadKey;
+            return new KeypadKey(key, nextDown, nextUp, nextLeft, nextRight);
         }
     }
 }
