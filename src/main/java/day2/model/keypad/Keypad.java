@@ -1,8 +1,8 @@
-package day2.java8.model.keypad;
+package day2.model.keypad;
 
-import day2.java8.model.Direction;
-import day2.java8.model.Key;
-import day2.java8.model.KeypadKey;
+import day2.model.Direction;
+import day2.model.Key;
+import day2.model.KeypadKey;
 
 public abstract class Keypad {
     protected KeypadKey currentKey;

@@ -1,8 +1,8 @@
-package day2.java8.model.keypad;
+package day2.model.keypad;
 
 import com.google.common.collect.ImmutableMap;
-import day2.java8.model.Key;
-import day2.java8.model.KeypadKey;
+import day2.model.Key;
+import day2.model.KeypadKey;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
-package day2.java8.resolver;
+package day2.resolver;
 
-import day2.java8.model.Direction;
-import day2.java8.model.Key;
-import day2.java8.model.keypad.ClassicKeypad;
+import day2.model.Direction;
+import day2.model.Key;
+import day2.model.keypad.ClassicKeypad;
 import org.junit.Assert;
 import org.junit.Test;
 

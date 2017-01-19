@@ -1,7 +1,7 @@
-package day2.java8.resolver;
+package day2.resolver;
 
 import java.util.List;
-import day2.java8.converter.StringDirectionToDirectionConverter;
+import day2.converter.StringDirectionToDirectionConverter;
 
 /**
  * @author mmalicki

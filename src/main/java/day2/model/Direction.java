@@ -1,4 +1,4 @@
-package day2.java8.model;
+package day2.model;
 
 import java.util.Arrays;
 

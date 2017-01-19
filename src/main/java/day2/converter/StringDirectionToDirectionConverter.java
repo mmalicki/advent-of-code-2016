@@ -1,7 +1,8 @@
-package day2.java8.converter;
+package day2.converter;
 
 import com.google.common.collect.ImmutableList;
-import day2.java8.model.Direction;
+import day2.model.Direction;
+
 import java.util.List;
 
 /**

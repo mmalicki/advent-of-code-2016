@@ -1,8 +1,8 @@
-package day2.java8.converter;
+package day2.converter;
 
 import java.util.Arrays;
 import java.util.List;
-import day2.java8.model.Direction;
+import day2.model.Direction;
 import org.junit.Assert;
 import org.junit.Test;
 

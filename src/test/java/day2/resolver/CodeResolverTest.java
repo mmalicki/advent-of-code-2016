@@ -1,8 +1,8 @@
-package day2.java8.resolver;
+package day2.resolver;
 
-import day2.java8.converter.StringDirectionToDirectionConverter;
-import day2.java8.model.Direction;
-import day2.java8.model.Key;
+import day2.converter.StringDirectionToDirectionConverter;
+import day2.model.Direction;
+import day2.model.Key;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

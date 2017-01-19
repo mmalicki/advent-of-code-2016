@@ -1,13 +1,13 @@
-package day2.java8.run;
+package day2.run;
 
 
-import day2.java8.converter.StringDirectionToDirectionConverter;
+import day2.converter.StringDirectionToDirectionConverter;
+import day2.model.keypad.CustomizedKeypad;
+import day2.resolver.CodeResolver;
+import day2.resolver.KeypadNavigator;
 import loader.PuzzleInputLoader;
-import day2.java8.model.keypad.ClassicKeypad;
-import day2.java8.model.keypad.CustomizedKeypad;
-import day2.java8.model.keypad.Keypad;
-import day2.java8.resolver.CodeResolver;
-import day2.java8.resolver.KeypadNavigator;
+import day2.model.keypad.ClassicKeypad;
+import day2.model.keypad.Keypad;
 
 /**
  * @author mmalicki
