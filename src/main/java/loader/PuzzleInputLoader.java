@@ -9,7 +9,7 @@ import java.util.List;
  * @author mmalicki
  */
 public class PuzzleInputLoader {
-    public List<String> loadInputPuzzle(String file) {
+    public static List<String> loadInputPuzzle(String file) {
         try {
             return Files.readAllLines(Paths.get(file));
         } catch (IOException e) {
