@@ -18,7 +18,7 @@ public class RoomValidator {
                 .thenComparing(Entry::getKey))
         .map(Entry::getKey)
         .limit(CHECKED_LETTERS_LIMIT)
-        .reduce(String::concat).orElseGet(String::new)
+        .collect(StringBuilder::new,  StringBuilder::append, StringBuilder::append).toString()
         .equals(room.getChecksum());
     }
 }
