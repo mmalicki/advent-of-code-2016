@@ -15,7 +15,7 @@ public class RoomNameDecryptorTest {
     public void test() {
         int result = testObject.decrypt(Stream.of(new Room("abc", 3, ""),
                 new Room("abc-def", 2, ""),
-                new Room("mnqsg-onkd", 1, "")));
+                new Room("mnqsg-onkd", 1, ""))).get();
         assertEquals(1, result);
     }
 }

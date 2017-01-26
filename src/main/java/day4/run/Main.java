@@ -10,7 +10,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<String> input = PuzzleInputLoader.loadInputPuzzle("C:/advent/4.txt");
-        int sectorsSum = DataDecryptor.decrypt(input, new RoomNameDecryptor());
+        int sectorsSum = DataDecryptor.decrypt(input, new RoomNameDecryptor())
+                .orElseThrow(() -> new RuntimeException("No data matching decrypting criteria"));
         System.out.println(sectorsSum);
     }
 }

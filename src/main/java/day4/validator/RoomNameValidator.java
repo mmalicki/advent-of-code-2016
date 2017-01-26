@@ -8,7 +8,7 @@ import static java.util.Map.*;
 import java.util.TreeMap;
 import java.util.function.Function;
 
-public class RoomValidator {
+public class RoomNameValidator {
     private static final int CHECKED_LETTERS_LIMIT = 5;
     private static final Comparator<Entry<Character, Integer>> BY_LETTER_OCCURENCES_DESCENDING = Comparator
             .<Entry<Character, Integer>, Integer>comparing(Entry::getValue).reversed();
@@ -18,6 +18,7 @@ public class RoomValidator {
         Map<Character, Integer> nameLettersOccurrences = new TreeMap<>(StringUtils.getCharactersOccurrences(room.getEncryptedName()));
         return nameLettersOccurrences.entrySet().stream()
 
+        .filter(character -> character.getKey() != '-')
         .sorted(BY_LETTER_OCCURENCES_DESCENDING.thenComparing(BY_NAMES))
         .limit(CHECKED_LETTERS_LIMIT)
 
