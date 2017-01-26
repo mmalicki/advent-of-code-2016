@@ -17,5 +17,4 @@ public class RoomValidatorTest {
         assertTrue(RoomValidator.isValid(room3));
         assertFalse(RoomValidator.isValid(room4));
     }
-
 }

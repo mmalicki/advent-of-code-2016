@@ -3,11 +3,10 @@ package day2.resolver;
 import day2.model.Direction;
 import day2.model.Key;
 import day2.model.keypad.ClassicKeypad;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.List;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class ClassicKeypadNavigatorTest {
 
