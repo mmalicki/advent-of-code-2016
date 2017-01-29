@@ -30,10 +30,8 @@ public class VerticalExtractor implements TriangleLengthsExtractor {
         } else {
             throw new RuntimeException("Input string did not match lengths pattern: " + lengthsAsString);
         }
-    }//n = 1, 2, 3
-    // 1 2 3
-    // 4 5 6
-    // 7 8 9
+    }
+
     private Triangle getTriangle(Matcher extractor, int n) {
         return Triangle.of(getGroup(extractor, n), getGroup(extractor, n + 3), getGroup(extractor, n + 6));
     }

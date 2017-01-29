@@ -14,7 +14,6 @@ public class TriangleConditionChecker {
                 .sorted()
                 .filter(number -> number > 0)
                 .collect(Collectors.toList());
-        System.out.println(result + " " + ((result.size() == 3) && ((result.get(0) + result.get(1)) > result.get(2))));
         return (result.size() == 3) && ((result.get(0) + result.get(1)) > result.get(2));
     }
     public boolean isTriangle(Triangle triangle) {

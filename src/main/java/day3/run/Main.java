@@ -12,10 +12,9 @@ import loader.PuzzleInputLoader;
  */
 public class Main {
     public static void main(String[] args) {
-        PuzzleInputLoader puzzleInputLoader = new PuzzleInputLoader();
         TriangleLengthsExtractor trianglesLengthsExtractor = new VerticalExtractor();
         TriangleConditionChecker triangleConditionChecker = new TriangleConditionChecker();
-        final List<String> puzzleInput = puzzleInputLoader.loadInputPuzzle("C:/advent/3.txt");
+        final List<String> puzzleInput = PuzzleInputLoader.loadInputPuzzle("C:/advent/3.txt");
         List<Triangle> triangles = trianglesLengthsExtractor.extract(puzzleInput);
 
         long trianglesCount = triangles.stream()
