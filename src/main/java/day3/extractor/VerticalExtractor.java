@@ -4,6 +4,7 @@ import day3.model.Triangle;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,7 +18,7 @@ public class VerticalExtractor implements TriangleLengthsExtractor {
     public List<Triangle> extract(final List<String> inputLines) {
         List<Triangle> possibleTriangles = new LinkedList<>();
         for (int i = 2; i < inputLines.size(); i += 3) {
-            String threeRows = inputLines.get(i) + inputLines.get(i - 1) + inputLines.get(i - 2);
+            String threeRows = inputLines.get(i - 2) + " " + inputLines.get(i - 1) + " " +  inputLines.get(i);
             possibleTriangles.addAll(extract(threeRows));
         }
         return possibleTriangles;

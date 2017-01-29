@@ -14,7 +14,10 @@ public class HorizontalExtractor implements TriangleLengthsExtractor {
     private static final Pattern EXTRACT_LENGTHS_PATTERN = Pattern.compile("\\s*(\\d+)\\s*(\\d+)\\s*(\\d+)");
     @Override
     public List<Triangle> extract(final List<String> inputLines) {
-        return inputLines.stream().map(lengths -> Triangle.of(extract(lengths))).collect(Collectors.toList());
+        return inputLines
+                .stream()
+                .map(lengths -> Triangle.of(extract(lengths)))
+                .collect(Collectors.toList());
     }
 
     private List<Integer> extract(String lengthsAsString) {
