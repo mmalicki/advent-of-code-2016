@@ -12,6 +12,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 public class VerticalExtractorTest {
+
     private TriangleLengthsExtractor testObject = new VerticalExtractor();
 
     @Test

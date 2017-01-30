@@ -18,7 +18,10 @@ public class VerticalExtractor implements TriangleLengthsExtractor {
     public List<Triangle> extract(final List<String> inputLines) {
         List<Triangle> possibleTriangles = new LinkedList<>();
         for (int i = 2; i < inputLines.size(); i += 3) {
-            String threeRows = inputLines.get(i - 2) + " " + inputLines.get(i - 1) + " " +  inputLines.get(i);
+            String threeRows = new StringJoiner(" ")
+                    .add(inputLines.get(i - 2))
+                    .add(inputLines.get(i - 1))
+                    .add(inputLines.get(i)).toString() ;
             possibleTriangles.addAll(extract(threeRows));
         }
         return possibleTriangles;

@@ -19,7 +19,8 @@ public class RoomNameDecryptor implements DecryptorStrategy {
     public Optional<Integer> decrypt(Stream<Room> roomStream) {
         return roomStream
                 .map(room -> new Room(shiftRoomNameById(room), room.getId(), room.getChecksum()))
-                .filter(STORES_NORTHPOLE_OBJECTS).findAny()
+                .filter(STORES_NORTHPOLE_OBJECTS)
+                .findAny()
                 .map(Room::getId);
     }
 
