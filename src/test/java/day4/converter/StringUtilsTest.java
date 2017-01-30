@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class StringUtilsTest {
 
-    //TODO: refaktor klasy z logika
     @Test
     public void convert() throws Exception {
         Map<Character, Integer> occurrences = StringUtils.getCharactersOccurrences("bbbb-a-qqqqqq");

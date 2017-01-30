@@ -11,7 +11,7 @@ public class RoomDataExtractorTest {
     @Test
     public void testExtractRoom() {
         String roomData = "jvyyvzpcl-jhukf-shivyhavyf-487[zhtsi]";
-        String[] room = testObject.extractRoomData(roomData);
+        String[] room = RoomDataExtractor.extractRoomData(roomData);
         Assert.assertEquals("jvyyvzpcl-jhukf-shivyhavyf", room[0]);
         Assert.assertEquals("487", room[1]);
         Assert.assertEquals("zhtsi", room[2]);

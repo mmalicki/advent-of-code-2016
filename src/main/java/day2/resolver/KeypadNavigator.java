@@ -16,9 +16,7 @@ public class KeypadNavigator {
     }
 
     public void navigateKeypad(List<Direction> directions) {
-        for (Direction direction : directions) {
-            keypad.move(direction);
-        }
+        directions.forEach(keypad::move);
     }
     public Key getCurrentKey() {
         return keypad.getCurrentKey();
