@@ -7,7 +7,7 @@ import day5.transformer.DoorIDMD5Transformer;
 import day5.transformer.DoorIDTransformer;
 import day5.validator.password.EightCharacterPasswordValidator;
 import day5.validator.password.PasswordValidator;
-import day5.validator.transformation.FirstFiveZeroesValidator;
+import day5.validator.transformation.CharPosValidator;
 import day5.validator.transformation.TransformationValidator;
 
 /**
@@ -19,10 +19,10 @@ public class Main {
         PasswordChunkProvider passwordChunkProvider = new FirstNonZeroPasswordChunkProvider();
         DoorIDTransformer doorIDTransformer = new DoorIDMD5Transformer();
         PasswordValidator passwordValidator = new EightCharacterPasswordValidator();
-        TransformationValidator transformationValidator = new FirstFiveZeroesValidator();
+        TransformationValidator transformationValidator = new CharPosValidator();
         PasswordGenerator passwordGenerator = new PasswordGenerator(passwordChunkProvider, passwordValidator, doorIDTransformer, transformationValidator);
 
-        System.out.println(passwordGenerator.generate(puzzleInput));
+        System.out.println(passwordGenerator.generateNewWay(puzzleInput));
     }
 }
 
