@@ -1,5 +1,6 @@
 package day5.run;
 
+import day5.generator.IncrementalPasswordGenerator;
 import day5.generator.PasswordGenerator;
 import day5.provider.FirstNonZeroPasswordChunkProvider;
 import day5.provider.PasswordChunkProvider;
@@ -20,9 +21,9 @@ public class Main {
         DoorIDTransformer doorIDTransformer = new DoorIDMD5Transformer();
         PasswordValidator passwordValidator = new EightCharacterPasswordValidator();
         TransformationValidator transformationValidator = new CharPosValidator();
-        PasswordGenerator passwordGenerator = new PasswordGenerator(passwordChunkProvider, passwordValidator, doorIDTransformer, transformationValidator);
+        PasswordGenerator incrementalPasswordGenerator = new IncrementalPasswordGenerator(passwordChunkProvider, passwordValidator, doorIDTransformer, transformationValidator);
 
-        System.out.println(passwordGenerator.generateNewWay(puzzleInput));
+        System.out.println(incrementalPasswordGenerator.generate(puzzleInput));
     }
 }
 
