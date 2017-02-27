@@ -14,7 +14,7 @@ import java.util.Optional;
 public class PuzzleInputLoader {
     public static String loadInputPuzzle(String file) {
         try {
-            URL resource = Optional.ofNullable(PuzzleInputLoader.class.getClassLoader().getResource(file))
+            URL resource = getResource(file)
                     .orElseThrow(() -> new RuntimeException("Could not find file: " + file));
             byte[] fileContent = Files.readAllBytes(Paths.get(resource.toURI()));
             return new String(fileContent, StandardCharsets.UTF_8);
@@ -23,5 +23,8 @@ public class PuzzleInputLoader {
         } catch (URISyntaxException e) {
             throw new RuntimeException("Cannot convert URL to URI: " + e.getMessage());
         }
+    }
+    private static Optional<URL> getResource(String name) {
+        return Optional.ofNullable(PuzzleInputLoader.class.getClassLoader().getResource(name));
     }
 }
