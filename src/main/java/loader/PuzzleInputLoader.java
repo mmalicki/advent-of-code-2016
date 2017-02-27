@@ -3,6 +3,7 @@ package loader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Optional;
@@ -16,7 +17,7 @@ public class PuzzleInputLoader {
             URL resource = Optional.ofNullable(PuzzleInputLoader.class.getClassLoader().getResource(file))
                     .orElseThrow(() -> new RuntimeException("Could not find file: " + file));
             byte[] fileContent = Files.readAllBytes(Paths.get(resource.toURI()));
-            return new String(fileContent);
+            return new String(fileContent, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new RuntimeException("Cannot extract file: " + file);
         } catch (URISyntaxException e) {
