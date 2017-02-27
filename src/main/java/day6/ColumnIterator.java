@@ -35,8 +35,7 @@ public class ColumnIterator implements Iterator<String>{
     public String next() {
         String nextElement = "";
         for (int row = 0; row < rowCount; row++) {
-            int pos = index + row * rowLength;
-            nextElement += input.charAt(pos);
+            nextElement += input.charAt(index + row * rowLength);
         }
         index++;
         return nextElement;
