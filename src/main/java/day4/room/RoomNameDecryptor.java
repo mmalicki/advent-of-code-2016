@@ -1,7 +1,6 @@
 package day4.room;
 
 import day4.model.Room;
-import scala.Char;
 
 import java.util.Arrays;
 import java.util.Optional;
