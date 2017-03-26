@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * @author mmalicki
  */
-public class ColumnIterator implements Iterator<String>{
+public class ColumnIterator implements Iterator<String> {
     private final String input;
     private final int rowLength;
     private final int rowCount;

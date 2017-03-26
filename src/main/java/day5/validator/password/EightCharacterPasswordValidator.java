@@ -3,7 +3,7 @@ package day5.validator.password;
 /**
  * @author mmalicki
  */
-public class EightCharacterPasswordValidator implements  PasswordValidator{
+public class EightCharacterPasswordValidator implements PasswordValidator {
     @Override
     public boolean isValid(final String password) {
         //TODO: dlugosc powinna byc jako argument z zewnatrz, a nie hardcoded
