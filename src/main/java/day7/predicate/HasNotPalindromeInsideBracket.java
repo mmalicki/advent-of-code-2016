@@ -7,34 +7,27 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HasNotPalindromeInsideBracket implements Function<String, Boolean> {
-    private static final Pattern INSIDE_BRACKETS_TEXT = Pattern.compile(".*\\[(\\w+)\\].*");
-    private List<String> bracketsContent = new ArrayList<>();
-    private Matcher matcher;
+    private static final Pattern INSIDE_BRACKETS_TEXT = Pattern.compile("\\[(\\w+)\\]");
+    private static final int BRACKETS_CONTENT_MATCHING_GROUP = 1;
+    private static final int PALINDROME_LENGTH = 4;
 
     @Override
     public Boolean apply(String s) {
-        bracketsContent = new ArrayList<>();
-        while (hasBrackets(s)) {
-            String group = matcher.group(1);
-            bracketsContent.add(group);
-//            System.out.println("b " + s);
-            s = s.replaceFirst("\\["+group+"\\]", "");
-//            System.out.println("a " + s);
-        }
+        List<String> bracketsContent = extractBracketsContent(s);
         for (String content : bracketsContent) {
-            for (int i = 0; i <= content.length() - 4; i++) {
-                String subStr = content.substring(i, i + 4);
-                if (PalindromeUtils.isPalindrome(subStr)) {
-                    return false;
-                }
+            if (PalindromeUtils.containsPalindrome(content, PALINDROME_LENGTH)) {
+                return false;
             }
         }
         return true;
-
     }
 
-    private boolean hasBrackets(String s) {
-        matcher = INSIDE_BRACKETS_TEXT.matcher(s);
-        return matcher.find(0);
+    private List<String> extractBracketsContent(String s) {
+        List<String> bracketsContent = new ArrayList<>();
+        Matcher matcher = INSIDE_BRACKETS_TEXT.matcher(s);
+        while (matcher.find()) {
+            bracketsContent.add(matcher.group(BRACKETS_CONTENT_MATCHING_GROUP));
+        }
+        return bracketsContent;
     }
 }

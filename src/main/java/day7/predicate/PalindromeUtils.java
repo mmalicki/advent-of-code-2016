@@ -19,4 +19,14 @@ public class PalindromeUtils {
     static boolean isPalindrome(String s) {
         return reverse(s).equals(s) && atLeastTwoDifferentChars(s);
     }
+
+    public static boolean containsPalindrome(String s, int wordLength) {
+        for (int i = 0; i <= s.length() - wordLength; i++) {
+            String subStr = s.substring(i, i + wordLength);
+            if (isPalindrome(subStr)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

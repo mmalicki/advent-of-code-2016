@@ -1,5 +1,7 @@
 package day7.predicate;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -8,54 +10,27 @@ import java.util.regex.Pattern;
 
 public class HasPalindromeOutsideBracket implements Function<String, Boolean> {
 
-    private static final Pattern PALINDROME_OUTSIDE_BRACKETS = Pattern.compile("(.*)\\[.*\\](.*)");
-    private static final Pattern INSIDE_BRACKETS_TEXT = Pattern.compile(".*\\[(.*)\\].*");
-    private List<String> bracketsContent = new ArrayList<>();
-    private Matcher matcher;
-static int k = 0;
+    private static final Pattern PALINDROME_OUTSIDE_BRACKETS = Pattern.compile("(?:\\]|^)(\\w+)(?:\\[|$)");
+    private static final int OUTSIDE_BRACKETS_CONTENT_GROUP = 1;
+    private static final int PALINDROME_LENGTH = 4;
+
     @Override
     public Boolean apply(String s) {
-        bracketsContent = new ArrayList<>();
-        while (hasBrackets(s)) {
-            bracketsContent.add(matcher.group(1));
-            s = s.replaceFirst("\\["+matcher.group(1)+"\\]", "    ");
-        }
-
-        String[] split = s.split("    ");
-        for (int i = 0; i < bracketsContent.size(); i++) {
-            String bracket = bracketsContent.get(i);
-            String left = split[i];
-            String right = split[i + 1];
-            if ((check(left) || check(right))) {
-                return true;
-            }
-        }
-return false;
-//        if (check(s)) return true;
-//        return false;
-    }
-
-    private boolean check(String s) {
-        for (int i = 0; i <= s.length() - 4; i++) {
-            String subStr = s.substring(i, i + 4);
-            if (PalindromeUtils.isPalindrome(subStr)) {
+        List<String> bracketsContent = extractOutsideBracketsContent(s);
+        for (String content : bracketsContent) {
+            if (PalindromeUtils.containsPalindrome(content, PALINDROME_LENGTH)) {
                 return true;
             }
         }
         return false;
     }
 
-    private boolean old(String s) {
+    private List<String> extractOutsideBracketsContent(String s) {
         Matcher matcher = PALINDROME_OUTSIDE_BRACKETS.matcher(s);
-        if (matcher.find()) {
-            String fstString = matcher.group(1);
-            String sndString = matcher.group(2);
-            return PalindromeUtils.isPalindrome(fstString) || PalindromeUtils.isPalindrome(sndString);
+        List<String> content = new ArrayList<>();
+        while (matcher.find()) {
+            content.add(matcher.group(OUTSIDE_BRACKETS_CONTENT_GROUP));
         }
-        return false;
-    }
-    private boolean hasBrackets(String s) {
-        matcher = INSIDE_BRACKETS_TEXT.matcher(s);
-        return matcher.find();
+        return content;
     }
 }
