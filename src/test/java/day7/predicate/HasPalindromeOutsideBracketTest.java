@@ -11,16 +11,6 @@ import static org.junit.Assert.*;
 public class HasPalindromeOutsideBracketTest {
 
     @Test
-    public void name() throws Exception {
-
-        final Pattern INSIDE_BRACKETS_TEXT = Pattern.compile("(?:\\]|^)(\\w+)(?:\\[|$)");
-        Matcher matcher = INSIDE_BRACKETS_TEXT.matcher("aaaa[bbbb]cccc[dddd]eeee");
-        while (matcher.find()) {
-            System.out.println(matcher.group(1));
-        }
-    }
-
-    @Test
     public void test() throws Exception {
         HasPalindromeOutsideBracket testObject = new HasPalindromeOutsideBracket();
         assertTrue(testObject.apply("AaaA[qwq]2"));
