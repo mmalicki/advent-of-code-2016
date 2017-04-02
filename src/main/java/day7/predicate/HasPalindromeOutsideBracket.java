@@ -1,7 +1,5 @@
 package day7.predicate;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -17,12 +15,8 @@ public class HasPalindromeOutsideBracket implements Function<String, Boolean> {
     @Override
     public Boolean apply(String s) {
         List<String> bracketsContent = extractOutsideBracketsContent(s);
-        for (String content : bracketsContent) {
-            if (PalindromeUtils.containsPalindrome(content, PALINDROME_LENGTH)) {
-                return true;
-            }
-        }
-        return false;
+        return bracketsContent.stream()
+                .anyMatch(content -> PalindromeUtils.containsPalindrome(content, PALINDROME_LENGTH));
     }
 
     private List<String> extractOutsideBracketsContent(String s) {

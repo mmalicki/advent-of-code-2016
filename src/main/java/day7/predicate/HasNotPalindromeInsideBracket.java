@@ -14,12 +14,8 @@ public class HasNotPalindromeInsideBracket implements Function<String, Boolean> 
     @Override
     public Boolean apply(String s) {
         List<String> bracketsContent = extractBracketsContent(s);
-        for (String content : bracketsContent) {
-            if (PalindromeUtils.containsPalindrome(content, PALINDROME_LENGTH)) {
-                return false;
-            }
-        }
-        return true;
+        return bracketsContent.stream()
+                .noneMatch(content -> PalindromeUtils.containsPalindrome(content, PALINDROME_LENGTH));
     }
 
     private List<String> extractBracketsContent(String s) {
