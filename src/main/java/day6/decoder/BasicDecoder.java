@@ -18,11 +18,11 @@ public class BasicDecoder implements Decoder {
 
     @Override
     public String decode(final String input) {
-        String decoded = "";
+        StringBuilder decoded = new StringBuilder();
         Iterator<String> iterator = ColumnIterator.of(input);
         while (iterator.hasNext()) {
-            decoded += transformer.provide(iterator.next());
+            decoded.append(transformer.provide(iterator.next()));
         }
-        return decoded;
+        return decoded.toString();
     }
 }

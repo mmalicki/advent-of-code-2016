@@ -14,11 +14,11 @@ public class PalindromeUtils {
 
     private static String reverse(String s) {
         char[] input = s.toCharArray();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = input.length - 1; i >= 0; i--) {
-            result += input[i];
+            result.append(input[i]);
         }
-        return result;
+        return result.toString();
     }
 
     static boolean isPalindrome(String s) {

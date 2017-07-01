@@ -37,7 +37,7 @@ public class CodeResolverTest {
                 .thenReturn(Key.FOUR)
                 .thenReturn(Key.EIGHT);
 
-        String result = codeResolver.resolveCode(Arrays.asList("LL", "DR"));
+        String result = codeResolver.resolve(Arrays.asList("LL", "DR"));
 
         assertEquals("48", result);
     }

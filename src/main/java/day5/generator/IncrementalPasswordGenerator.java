@@ -24,19 +24,18 @@ public class IncrementalPasswordGenerator implements PasswordGenerator{
 
     public String generate(String puzzleInput) {
         int counter = 0;
-        String password = "";
-        String input;
-        while(!passwordValidator.isValid(password)) {
-            input = puzzleInput + counter++;
+        StringBuilder password = new StringBuilder();
+        while(!passwordValidator.isValid(password.toString())) {
+            String input = puzzleInput + counter++;
             String transformedInput = doorIDTransformer.transform(input);
             if (transformationValidator.isValid(transformedInput)) {
-                password += passwordChunkProvider.getPasswordChunk(transformedInput);
+                password.append(passwordChunkProvider.getPasswordChunk(transformedInput));
             }
             if (counter == (Integer.MAX_VALUE - 1)) {
                 throw new RuntimeException("Could not generate password");
             }
         }
-        return password;
+        return password.toString();
     }
 
 

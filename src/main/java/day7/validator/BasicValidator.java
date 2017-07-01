@@ -10,6 +10,4 @@ public class BasicValidator {
     public BasicValidator() {
         compositePredicate = CompositePredicate.of(new HasNotPalindromeInsideBracket(), new HasPalindromeOutsideBracket());
     }
-
-
 }

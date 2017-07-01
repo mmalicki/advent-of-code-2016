@@ -33,11 +33,11 @@ public class ColumnIterator implements Iterator<String> {
 
     @Override
     public String next() {
-        String nextElement = "";
+        StringBuilder nextElement = new StringBuilder();
         for (int row = 0; row < rowCount; row++) {
-            nextElement += input.charAt(index + row * rowLength);
+            nextElement.append(input.charAt(index + row * rowLength));
         }
         index++;
-        return nextElement;
+        return nextElement.toString();
     }
 }

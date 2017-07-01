@@ -11,12 +11,12 @@ public class ColumnIteratorTest {
     public void testIterator() throws Exception {
         String input = "abcd" + System.lineSeparator() + "efgh" + System.lineSeparator() + "ijkl" + System.lineSeparator() + "mnop";
         ColumnIterator iterator = ColumnIterator.of(input);
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         while(iterator.hasNext()) {
-            result += iterator.next();
+            result.append(iterator.next());
         }
-        Assert.assertEquals("aeimbfjncgkodhlp", result);
+        Assert.assertEquals("aeimbfjncgkodhlp", result.toString());
 
     }
 }

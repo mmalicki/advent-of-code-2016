@@ -5,7 +5,6 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 
 public class HasPalindromeOutsideBracket implements Function<String, Boolean> {
-
     private static final Pattern PALINDROME_OUTSIDE_BRACKETS = Pattern.compile("(?:\\]|^)(\\w+)(?:\\[|$)");
     private static final int PALINDROME_LENGTH = 4;
 

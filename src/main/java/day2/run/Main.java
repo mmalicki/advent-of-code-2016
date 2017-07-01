@@ -23,7 +23,7 @@ public class Main {
         KeypadNavigator keypadNavigator = new KeypadNavigator(customKeypad);
         CodeResolver codeResolver = new CodeResolver(keypadNavigator,
                 new StringDirectionToDirectionConverter());
-        String result = codeResolver.resolveCode(Arrays.asList(PuzzleInputLoader.loadInputPuzzle(INPUT_PATH).split(System.lineSeparator())));
+        String result = codeResolver.resolve(Arrays.asList(PuzzleInputLoader.loadInputPuzzle(INPUT_PATH).split(System.lineSeparator())));
         System.out.println(result);
     }
 }

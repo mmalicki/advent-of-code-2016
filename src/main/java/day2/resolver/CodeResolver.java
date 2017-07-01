@@ -15,12 +15,12 @@ public class CodeResolver {
         this.directionConverter = directionConverter;
     }
 
-    public String resolveCode(List<String> instructions) {
-        String code = "";
+    public String resolve(List<String> instructions) {
+        StringBuilder code = new StringBuilder();
         for (String instruction : instructions) {
             keypadNavigator.navigateKeypad(directionConverter.getDirections(instruction));
-            code += keypadNavigator.getCurrentKey();
+            code.append(keypadNavigator.getCurrentKey());
         }
-        return code;
+        return code.toString();
     }
 }

@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 import static day7.predicate.PalindromeUtils.extractAllByPattern;
 
 public class HasSSLSupportedBlockPredicate implements Function<String, Boolean> {
-
     private static final Pattern PALINDROME_OUTSIDE_BRACKETS = Pattern.compile("(?:\\]|^)(\\w+)(?:\\[|$)");
     private static final Pattern INSIDE_BRACKETS_TEXT = Pattern.compile("\\[(\\w+)\\]");
 
