@@ -1,6 +1,6 @@
-package day8.run.interpreter;
+package day8.interpreter;
 
-import day8.run.model.Screen;
+import day8.model.Screen;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

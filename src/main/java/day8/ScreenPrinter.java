@@ -1,9 +1,9 @@
-package day8.run;
+package day8;
 
-import day8.run.model.Screen;
+import day8.model.Screen;
 
-public class ScreenReader {
-    public static void readScreen(Screen screen) {
+public class ScreenPrinter {
+    public static void printScreen(Screen screen) {
         boolean[][] arr = screen.getScreen();
         for (boolean[] a : arr) {
             for (boolean b : a) {

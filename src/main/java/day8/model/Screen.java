@@ -1,4 +1,4 @@
-package day8.run.model;
+package day8.model;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;

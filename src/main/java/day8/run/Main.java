@@ -1,7 +1,8 @@
 package day8.run;
 
-import day8.run.interpreter.InstructionInterpreter;
-import day8.run.model.Screen;
+import day8.ScreenPrinter;
+import day8.interpreter.InstructionInterpreter;
+import day8.model.Screen;
 import loader.PuzzleInputLoader;
 
 public class Main {
@@ -13,6 +14,6 @@ public class Main {
             instructionInterpreter.executeCommand(instruction);
         }
         System.out.println(screen.getTurnedOnPixels());
-        ScreenReader.readScreen(screen);
+        ScreenPrinter.printScreen(screen);
     }
 }

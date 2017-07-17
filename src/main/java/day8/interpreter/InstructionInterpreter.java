@@ -1,16 +1,16 @@
-package day8.run.interpreter;
+package day8.interpreter;
 
 
 import com.google.common.collect.ImmutableMap;
-import day8.run.model.Screen;
+import day8.model.Screen;
 
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static day8.run.interpreter.InstructionInterpreter.InstructionPattern.ROTATE_COLUMN_PATTERN;
-import static day8.run.interpreter.InstructionInterpreter.InstructionPattern.ROTATE_ROW_PATTERN;
-import static day8.run.interpreter.InstructionInterpreter.InstructionPattern.TURN_ON_PATTERN;
+import static day8.interpreter.InstructionInterpreter.InstructionPattern.ROTATE_COLUMN_PATTERN;
+import static day8.interpreter.InstructionInterpreter.InstructionPattern.ROTATE_ROW_PATTERN;
+import static day8.interpreter.InstructionInterpreter.InstructionPattern.TURN_ON_PATTERN;
 
 public class InstructionInterpreter {
     private static final Map<InstructionPattern, Pattern> PATTERNS = ImmutableMap.<InstructionPattern, Pattern>builder()
