@@ -13,7 +13,7 @@ import static day8.run.interpreter.InstructionInterpreter.InstructionPattern.ROT
 import static day8.run.interpreter.InstructionInterpreter.InstructionPattern.TURN_ON_PATTERN;
 
 public class InstructionInterpreter {
-    private final Map<InstructionPattern, Pattern> map = ImmutableMap.<InstructionPattern, Pattern>builder()
+    private static final Map<InstructionPattern, Pattern> PATTERNS = ImmutableMap.<InstructionPattern, Pattern>builder()
             .put(TURN_ON_PATTERN, Pattern.compile("rect (\\d+)x(\\d+)"))
             .put(ROTATE_ROW_PATTERN, Pattern.compile("rotate row y=(\\d+) by (\\d+)"))
             .put(ROTATE_COLUMN_PATTERN, Pattern.compile("rotate column x=(\\d+) by (\\d+)")).build();
@@ -25,7 +25,7 @@ public class InstructionInterpreter {
     }
 
     public void executeCommand(String command) {
-        for (Map.Entry<InstructionPattern, Pattern> pattern : map.entrySet()) {
+        for (Map.Entry<InstructionPattern, Pattern> pattern : PATTERNS.entrySet()) {
             Matcher matcher = pattern.getValue().matcher(command);
             if (matcher.matches()) {
                 pattern.getKey().execute(screen, matcher);

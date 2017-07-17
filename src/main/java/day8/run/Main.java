@@ -13,5 +13,6 @@ public class Main {
             instructionInterpreter.executeCommand(instruction);
         }
         System.out.println(screen.getTurnedOnPixels());
+        ScreenReader.readScreen(screen);
     }
 }

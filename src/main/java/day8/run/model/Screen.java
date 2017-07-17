@@ -39,7 +39,6 @@ public class Screen {
 
     //READ COLUMNS
     //READ ROWS
-
     public enum ReadDirection {
         ROWS, COLUMNS
     }
@@ -58,7 +57,7 @@ public class Screen {
                 (i - rotation) % range;
     }
 
-    boolean[][] getScreen() {
+    public boolean[][] getScreen() {
         return screen;
     }
 
