@@ -37,6 +37,13 @@ public class Screen {
         );
     }
 
+    //READ COLUMNS
+    //READ ROWS
+
+    public enum ReadDirection {
+        ROWS, COLUMNS
+    }
+
     private void rotate(int range, Function<Integer, Boolean> rotationFunction, Consumer<boolean[]> rotationApplier) {
         boolean rotated[] = new boolean[range];
         for (int i = 0; i < rotated.length; i++) {
@@ -53,5 +60,17 @@ public class Screen {
 
     boolean[][] getScreen() {
         return screen;
+    }
+
+    public int getTurnedOnPixels() {
+        int count = 0;
+        for (boolean[] aScreen : screen) {
+            for (boolean anAScreen : aScreen) {
+                if (anAScreen) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }
