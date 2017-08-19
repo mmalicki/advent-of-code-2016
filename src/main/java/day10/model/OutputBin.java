@@ -1,19 +1,23 @@
 package day10.model;
 
-public class OutputBin {
-    private final int id;
-    private final int value;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-    public OutputBin(int id, int value) {
-        this.id = id;
-        this.value = value;
+@EqualsAndHashCode(callSuper = true)
+public class OutputBin extends ReceivingSubject {
+    private int value;
+
+    public OutputBin(int id) {
+        super(id);
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
-    public int getValue() {
-        return value;
+    @Override
+    public void addChip(int chipValue) {
+        value = chipValue;
     }
 }

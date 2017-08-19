@@ -1,28 +1,43 @@
 package day10.instruction;
 
+import day10.exception.NotRecognizedInstructionException;
+
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public enum InstructionType {
-    INSTANT {
+    INSTANT (Pattern.compile("value (\\d+) goes to bot (\\d+)")){
         @Override
-        public Instruction build(Matcher matcher) {
-            Integer value = Integer.parseInt(matcher.group(1));
-            Integer botId = Integer.parseInt(matcher.group(2));
-            return new InstantInstruction(value, botId);
+        public Instruction createInstruction(String instructionContent) {
+            Matcher validatedMatcher = getValidatedMatcher(instructionContent);
+            return InstructionFactory.createInstantInstruction(validatedMatcher);
         }
     },
-    CONDITIONAL {
+    CONDITIONAL (Pattern.compile("bot (\\d+) gives low to (output|bot) (\\d+) and high to (output|bot) (\\d+)")){
         @Override
-        public Instruction build(Matcher matcher) {
-            Integer donorId = Integer.parseInt(matcher.group(1));
-            boolean isLowReceiverBot = BOT.equals(matcher.group(2));
-            Integer lowReceiverId = Integer.parseInt(matcher.group(3));
-            boolean isHighReceiverBot = BOT.equals(matcher.group(4));
-            Integer highReceiverId = Integer.parseInt(matcher.group(5));
-            return new ConditionalInstruction(donorId, isLowReceiverBot, lowReceiverId, isHighReceiverBot, highReceiverId);
+        public Instruction createInstruction(String instructionContent) {
+            Matcher validatedMatcher = getValidatedMatcher(instructionContent);
+            return InstructionFactory.createConditionalInstruction(validatedMatcher);
         }
     };
 
-    private static final String BOT = "bot";
-    public abstract Instruction build(Matcher matcher);
+    private final Pattern pattern;
+
+    InstructionType(Pattern pattern) {
+        this.pattern = pattern;
+    }
+
+    public abstract Instruction createInstruction(String instruction);
+
+    protected Matcher getValidatedMatcher(String input) {
+        Matcher matcher = this.pattern.matcher(input);
+        if (!matcher.find()) {
+            throw new NotRecognizedInstructionException(input);
+        }
+        return matcher;
+    }
+
+    public boolean matches(String input) {
+        return input.matches(pattern.pattern());
+    }
 }
