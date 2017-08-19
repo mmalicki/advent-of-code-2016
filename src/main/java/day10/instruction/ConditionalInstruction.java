@@ -2,7 +2,9 @@ package day10.instruction;
 
 import day10.exception.BotNotExistingException;
 import day10.model.Bot;
+import day10.model.OutputBin;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BinaryOperator;
@@ -14,6 +16,7 @@ public class ConditionalInstruction extends Instruction {
     private final boolean isLowReceiverBot;
     private final boolean isHighReceiverBot;
 
+
     public ConditionalInstruction(Integer donorId, boolean isLowReceiverBot, Integer lowReceiverId, boolean isHighReceiverBot, Integer highReceiverId) {
         this.donorId = donorId;
         this.lowReceiverId = lowReceiverId;
@@ -23,7 +26,7 @@ public class ConditionalInstruction extends Instruction {
     }
 
     @Override
-    public void execute(List<Bot> bots) {
+    public void execute(List<Bot> bots, List<OutputBin> outputBins) {
         Bot donorBot = bots.stream()
                 .filter(b -> b.getId().intValue() == donorId)
                 .findAny()
@@ -38,10 +41,14 @@ public class ConditionalInstruction extends Instruction {
         if (isLowReceiverBot) {
             Bot lowReceiverBot = getOrCreateBot(bots, lowReceiverId);
             distributeChip(lowReceiverBot, chips, BinaryOperator.minBy(Integer::compareTo));
+        } else {
+            outputBins.add(new OutputBin(lowReceiverId, chips.stream().reduce(BinaryOperator.minBy(Integer::compareTo)).get()));
         }
         if (isHighReceiverBot) {
             Bot highReceiverBot = getOrCreateBot(bots, highReceiverId);
             distributeChip(highReceiverBot, chips, BinaryOperator.maxBy(Integer::compareTo));
+        } else {
+            outputBins.add(new OutputBin(highReceiverId, chips.stream().reduce(BinaryOperator.maxBy(Integer::compareTo)).get()));
         }
         chips.clear();
     }
@@ -60,4 +67,5 @@ public class ConditionalInstruction extends Instruction {
                 .map(Bot::canProceed)
                 .orElse(false);//bot.isPresent() && bot.get().canProceed();
     }
+
 }

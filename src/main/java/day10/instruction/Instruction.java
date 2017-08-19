@@ -1,12 +1,13 @@
 package day10.instruction;
 
 import day10.model.Bot;
+import day10.model.OutputBin;
 
 import java.util.List;
 import java.util.Optional;
 
 public abstract class Instruction {
-    abstract void execute(List<Bot> bots);
+    abstract void execute(List<Bot> bots, List<OutputBin> outputBins);
 
     Bot getOrCreateBot(List<Bot> bots, int id) {
         Optional<Bot> bot = bots.stream()

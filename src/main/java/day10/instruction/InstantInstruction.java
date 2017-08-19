@@ -1,6 +1,7 @@
 package day10.instruction;
 
 import day10.model.Bot;
+import day10.model.OutputBin;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class InstantInstruction extends Instruction {
     }
 
     @Override
-    public void execute(List<Bot> bots) {
+    public void execute(List<Bot> bots, List<OutputBin> outputBins) {
         Bot bot = getOrCreateBot(bots, botId);
         bot.getChips().add(value);
     }
