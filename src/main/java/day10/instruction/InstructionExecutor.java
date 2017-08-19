@@ -1,8 +1,5 @@
 package day10.instruction;
 
-import day10.model.Bot;
-import day10.model.OutputBin;
-
 import java.util.ArrayList;
 import java.util.List;
 
