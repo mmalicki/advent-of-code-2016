@@ -33,6 +33,6 @@ public class RoomNameDecryptor implements DecryptorStrategy {
     private int shiftRightBy(int letter, int shift) {
         int letterOffset = letter - ALPHABET_BASE;
         int shiftedOffset = (letterOffset + shift) % ALPHABET_SIZE;
-        return  (ALPHABET_BASE + shiftedOffset);
+        return (ALPHABET_BASE + shiftedOffset);
     }
 }
